@@ -67,7 +67,7 @@ $length = strlen($branch_id);
     foreach($fetch_account_info as $account_info){
     $fetched_account_no = $account_info['account_no'];
         if ($account_no == $fetched_account_no){
-          $account_no = account_no_generation();sdd
+          $account_no = account_no_generation($institutionId, $branch, $randms);
         }
     }
   // add loop to check if account number already exists on the database if yes create account number again. 

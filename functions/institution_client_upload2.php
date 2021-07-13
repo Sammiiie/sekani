@@ -65,7 +65,7 @@ if ($ctype == 'INDIVIDUAL' || $ctype == 'GROUP') {
     foreach($fetch_account_info as $account_info){
     $fetched_account_no = $account_info['account_no'];
         if ($account_no == $fetched_account_no){
-          $account_no = account_no_generation();sdd
+          $account_no = account_no_generation($institutionId, $branch, $randms);
         }
     }
 
