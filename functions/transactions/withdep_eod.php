@@ -10,7 +10,7 @@ if ($eod_validate == 2){
 } else if ($eod_validate == 0){
 	header("Location: withdep.php");
 }else{
-    header("Location: withdep.php");
+    header ("Location: withdep.php");
 } /*else if ($eod_validate == 1){
     header("Location: ../../mfi/transact.php?response=err");
 } */
