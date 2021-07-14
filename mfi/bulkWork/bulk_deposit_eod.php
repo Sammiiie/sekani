@@ -8,6 +8,11 @@ if ($eod_validate == 2){
     header("Location: ../bulk_deposit.php?response=manual_vault");
 } else if ($eod_validate == 0){
     header("Location: deposit.php");
-}else if ($eod_validate == 1){
+}else{
+    header("Location: deposit.php");
+}
+
+/*else if ($eod_validate == 1){
     header("Location: ../bulk_deposit.php?response=err");
-}?>
+}*/
+?>

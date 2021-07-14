@@ -62,6 +62,14 @@ if ($acc_update == 1 || $acc_update == "1") {
         $sign = $n['signature'];
         $passportbk = $n['passport'];
         $idimg = $n['id_img_url'];
+
+        // dd($n);
+        $nok = $n['next_of_kin_name'];
+        $rel_nok = $n['next_of_kin_relationship'];
+        $number_nok = $n['next_of_kin_phone_number'];
+        $email_nok = $n['next_of_kin_email'];
+
+
       }
       function fill_state($connection)
       {
@@ -291,6 +299,22 @@ if ($acc_update == 1 || $acc_update == "1") {
                     <div class="col-md-4">
                       <label for="">BVN:</label>
                       <input type="text" value="<?php echo $bvn; ?>" name="bvn" class="form-control" id="">
+                    </div>
+                    <div class="col-md-4">
+                      <label for="">Name of Next of Kin</label>
+                      <input type="text" value="<?php echo $nok; ?>" name="nok"" class="form-control" id="">
+                    </div>
+                    <div class="col-md-4">
+                      <label for="">Relationship</label>
+                      <input type="text" value="<?php echo $rel_nok; ?>" name="rel_nok"  class="form-control" id="">
+                    </div>
+                    <div class="col-md-2">
+                      <label for="">Phone Number:</label>
+                      <input type="number" value="<?php echo $number_nok; ?>" name="number_nok" class="form-control" id="">
+                    </div>
+                    <div class="col-md-2">
+                      <label for="">Email Address:</label>
+                      <input type="text" value="<?php echo $email_nok; ?>" name="email_nok"class="form-control" id="">
                     </div>
                     <div class="col-md-4">
                       <p><label for="">Active Alerts: </label></p>
@@ -811,6 +835,11 @@ if ($acc_update == 1 || $acc_update == "1") {
         $sigid2 = $n['sig_id_card_two'];
         $sigid3 = $n['sig_id_card_three'];
         $acc_no = $n['account_no'];
+
+        $nok = $n['next_of_kin_name'];
+        $rel_nok = $n['next_of_kin_relationship'];
+        $number_nok = $n['next_of_kin_phone_number'];
+        $email_nok = $n['next_of_kin_email'];
       }
       function fill_state($connection)
       {
@@ -1093,6 +1122,22 @@ if ($acc_update == 1 || $acc_update == "1") {
                                 <label>BVN</label>
                                 <input value="<?php echo $bvn1; ?>" type="text" style="text-transform: uppercase;" class="form-control" name="sig_bvn_one">
                               </div>
+                            </div>
+                            <div class="col-md-12">
+                              <label for="">Name of Next of Kin</label>
+                              <input type="text" value="<?php echo $nok; ?>" name="nok" class="form-control" id="">
+                            </div>
+                            <div class="col-md-12">
+                              <label for="">Relationship</label>
+                              <input type="text" value="<?php echo $rel_nok; ?>" name="rel_nok" class="form-control" id="">
+                            </div>
+                            <div class="col-md-12">
+                              <label for="">Phone Number:</label>
+                              <input type="number" value="<?php echo $number_nok; ?>" name="number_nok" class="form-control" id="">
+                            </div>
+                            <div class="col-md-12">
+                              <label for="">Email Address:</label>
+                              <input type="text" value="<?php echo $email_nok; ?>" name="email_nok" class="form-control" id="">
                             </div>
                             <div class="col-md-12">
                               <p><label for="">Active Alerts: </label></p>
@@ -1432,7 +1477,23 @@ if ($acc_update == 1 || $acc_update == "1") {
                                 <label>BVN</label>
                                 <input value="<?php echo $bvn3; ?>" type="text" style="text-transform: uppercase;" class="form-control" name="sig_bvn_three">
                               </div>
-                            </div>
+                              <!-- <div class="col-md-4">
+                                <label for="">Name of Next of Kin</label>
+                                <input type="text" value="<?php echo $nok; ?>" name="nok" class="form-control" id="">
+                              </div>
+                              <div class="col-md-4">
+                                <label for="">Relationship</label>
+                                <input type="text" value="<?php echo $rel_nok; ?>" name="rel_nok" class="form-control" id="">
+                              </div>
+                              <div class="col-md-2">
+                                <label for="">Phone Number:</label>
+                                <input type="number" value="<?php echo $number_nok; ?>" name="number_nok" class="form-control" id="">
+                              </div>
+                              <div class="col-md-2">
+                                <label for="">Email Address:</label>
+                                <input type="text" value="<?php echo $email_nok; ?>" name="email_nok" class="form-control" id="">
+                              </div>
+                            </div> -->
                             <div class="col-md-12">
                               <p><label for="">Active Alerts: </label></p>
                               <input type="text" hidden value="<?php echo $smsactive3; ?>" id="sms3">

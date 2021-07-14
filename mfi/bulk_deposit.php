@@ -245,13 +245,11 @@ else if (isset($_GET["message11"])) {
       $(document).ready(function(){
           swal({
               type: "warning",
-              title: "EOD reached!",
-              text: "Kindly balance your books, click \"Proceed\" to run operation!",
+              title: "EOD reach!",
+              text: "Today has been marked closed!",
               showConfirmButton: true,
               confirmButtonText: "Proceed"
-          }).then(function() {
-            window.location = "teller_journal.php";
-        });
+          })
       });
       </script>
       ';
@@ -260,8 +258,8 @@ else if (isset($_GET["message11"])) {
       $(document).ready(function(){
           swal({
               type: "error",
-              title: "Something went wrong!",
-              text: "Error with completing transaction!",
+              title: "Not Allowed!",
+              text: "Day has not been closed!",
               showConfirmButton: true
           })
       });

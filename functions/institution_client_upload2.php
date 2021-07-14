@@ -22,6 +22,12 @@ $sessint_id = $_SESSION["int_id"];
 $ctype = strtoupper($_POST['ctype']);
 $rand = str_pad(rand(0, pow(10, $rigits) - 1), $rigits, '0', STR_PAD_LEFT);
 
+// Next Of Kin
+$nok = $_POST['nok'];
+$relationship_Nok = $_POST['relationship_Nok'];
+$numberof_Nok = $_POST['numberof_Nok'];
+$email_Nok = $_POST['email_Nok'];
+
 // create an individual or group account
 if ($ctype == 'INDIVIDUAL' || $ctype == 'GROUP') {
   $loan_officer_id = $_POST["acct_of"];
@@ -52,7 +58,21 @@ if ($ctype == 'INDIVIDUAL' || $ctype == 'GROUP') {
   }else{
     $institutionId =  $sessint_id;
   }
-  $account_no = $institutionId . "" . $branch . "" . $randms;
+function account_no_generation($institutionId, $branch, $randms){
+       $account_no = $institutionId . "" . $branch . "" . $randms;
+        return $account_no;
+    }
+  $account_no = account_no_generation($institutionId, $branch, $randms);
+  $condition = [
+            'int_id' => $institutionId,
+        ];
+    $fetch_account_info = selectAll('account', $condition);
+    foreach($fetch_account_info as $account_info){
+    $fetched_account_no = $account_info['account_no'];
+        if ($account_no == $fetched_account_no){
+          $account_no = account_no_generation($institutionId, $branch, $randms);
+        }
+    }
   // add loop to check if account number already exists on the database if yes create account number again. 
 
   // auto calculation for the account number generation
@@ -92,6 +112,9 @@ if ($ctype == 'INDIVIDUAL' || $ctype == 'GROUP') {
   $country = $_POST['country'];
   $state = $_POST['stated'];
   $lga = $_POST['lgka'];
+
+
+
   $occupation = $_POST['occupation'];
   $loan_status = "Not Active";
   $activation_date = date("Y-m-d");
@@ -155,10 +178,10 @@ if ($ctype == 'INDIVIDUAL' || $ctype == 'GROUP') {
   $query = "INSERT INTO client (int_id, loan_officer_id, client_type, account_type,
   display_name, account_no, firstname, lastname, middlename, mobile_no, mobile_no_2, email_address, address, gender, date_of_birth, 
   branch_id, country, STATE_OF_ORIGIN, lga, occupation, id_card,
-  passport, signature, id_img_url, loan_status, submittedon_date, activation_date) VALUES ('{$sessint_id}', '{$loan_officer_id}', '{$ctype}',
+  passport, signature, id_img_url, loan_status, submittedon_date, activation_date, next_of_kin_name, next_of_kin_relationship, next_of_kin_phone_number, next_of_kin_email) VALUES ('{$sessint_id}', '{$loan_officer_id}', '{$ctype}',
   '{$acct_type}', '{$display_name}', '{$account_no}', '{$first_name}', '{$last_name}', '{$middlename}', '{$phone}', '{$phone2}', '{$email}', '{$address}', 
   '{$gender}', '{$date_of_birth}', '{$branch}', '{$country}', '{$state}', '{$lga}', '{$occupation}',
-  '{$id_card}', '{$image3}', '{$image1}', '{$image2}', '{$loan_status}', '{$submitted_on}', '{$activation_date}')";
+  '{$id_card}', '{$image3}', '{$image1}', '{$image2}', '{$loan_status}', '{$submitted_on}', '{$activation_date}', '{$nok}', '{$relationship_Nok}', '{$numberof_Nok}', '{$email_Nok}')";
 
   $res = mysqli_query($connection, $query);
   var_dump($res);
@@ -382,13 +405,13 @@ if ($ctype == 'INDIVIDUAL' || $ctype == 'GROUP') {
     sig_gender_one, sig_gender_two, sig_gender_three, sig_state_one, sig_state_two, sig_state_three, sig_lga_one, sig_lga_two, sig_lga_three,
      sig_occu_one, sig_occu_two, sig_occu_three,sig_bvn_one, sig_bvn_two, sig_bvn_three, sms_active_one, sms_active_two, sms_active_three,
       email_active_one, email_active_two, email_active_three, sig_passport_one, sig_passport_two, sig_passport_three, sig_signature_one, 
-      sig_signature_two, sig_signature_three, sig_id_img_one, sig_id_img_two, sig_id_img_three, sig_id_card_one, sig_id_card_two, sig_id_card_three, status) 
+      sig_signature_two, sig_signature_three, sig_id_img_one, sig_id_img_two, sig_id_img_three, sig_id_card_one, sig_id_card_two, sig_id_card_three, status, next_of_kin_name, next_of_kin_relationship, next_of_kin_phone_number, next_of_kin_email) 
   VALUES ('{$sessint_id}', '{$loan_officer_id}', '{$loan_status}', '{$branch}', '{$ctype}', '{$account_no}','{$acct_type}', '{$activation_date}', '{$display_name}', '{$display_name}', '{$date_of_birth}',
   '{$submitted_on}', '{$email}', '{$address}','{$country}', '{$rc_number}','{$sig_one}','{$sig_two}','{$sig_three}','{$sig_address_one}','{$sig_address_two}','{$sig_address_three}',
   '{$sig_phone_one}','{$sig_phone_two}','{$sig_phone_three}','{$sig_gender_one}','{$sig_gender_two}','{$sig_gender_three}','{$sig_state_one}','{$sig_state_two}','{$sig_state_three}',
   '{$sig_lga_one}','{$sig_lga_two}','{$sig_lga_three}', '{$sig_occu_one}', '{$sig_occu_two}', '{$sig_occu_three}', '{$sig_bvn_one}','{$sig_bvn_two}','{$sig_bvn_three}','{$sms_active_one}','{$sms_active_two}','{$sms_active_three}',
   '{$email_active_one}','{$email_active_two}','{$email_active_three}','{$sig_passport_one}','{$sig_passport_two}','{$sig_passport_three}','{$sig_signature_one}','{$sig_signature_two}',
-  '{$sig_signature_three}','{$sig_id_img_one}','{$sig_id_img_two}','{$sig_id_img_three}','{$sig_id_card_one}','{$sig_id_card_two}','{$sig_id_card_three}','Not Approved')";
+  '{$sig_signature_three}','{$sig_id_img_one}','{$sig_id_img_two}','{$sig_id_img_three}','{$sig_id_card_one}','{$sig_id_card_two}','{$sig_id_card_three}','Not Approved',  '{$nok}', '{$relationship_Nok}', '{$numberof_Nok}', '{$email_Nok}')";
 
   $res = mysqli_query($connection, $query);
   if ($res) {
