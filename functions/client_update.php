@@ -7,6 +7,15 @@ $digits = 6;
 $tday = date('Y-m-d');
 $randms = str_pad(rand(0, pow(10, $digits)-1), $digits, '0', STR_PAD_LEFT);
 $ctype = $_POST['ctype'];
+
+
+// Next Of Kin
+$nok = $_POST['nok'];
+$relationship_Nok = $_POST['rel_nok'];
+$numberof_Nok = $_POST['number_nok'];
+$email_Nok = $_POST['email_nok'];
+
+
 if($ctype == 'INDIVIDUAL' || $ctype == 'GROUP')
 {
     if (isset($_POST['id']) && isset($_POST['ctype'])) {
@@ -65,7 +74,7 @@ if($ctype == 'INDIVIDUAL' || $ctype == 'GROUP')
     mobile_no = '$phone', mobile_no_2 = '$phone2', occupation = '$occupation', ADDRESS = '$address', gender = '$gender',
     date_of_birth = '$date_of_birth',email_address = '$email', branch_id = '$branch', COUNTRY = '$country', STATE_OF_ORIGIN = '$state',
     LGA = '$lga', BVN = '$bvn', SMS_ACTIVE = '$sms_active',
-    EMAIL_ACTIVE = '$email_active', updated_by = '$updated_by', updated_on = '$updated_on', status = 'Not Approved' WHERE id = '$id'";
+    EMAIL_ACTIVE = '$email_active', updated_by = '$updated_by', updated_on = '$updated_on', status = 'Not Approved', next_of_kin_name = '$nok',  next_of_kin_relationship = '$relationship_Nok', next_of_kin_phone_number = '$numberof_Nok', next_of_kin_email = '$email_Nok' WHERE id = '$id'";
     
     $result = mysqli_query($connection, $queryx);
     if($result) {
@@ -313,7 +322,7 @@ else if($ctype == 'CORPORATE'){
            sig_gender_one = '$gender1', sig_gender_two = '$gender2', sig_gender_three = '$gender3', sig_state_one = '$state1', sig_state_two = '$state2', sig_state_three = '$state3', sig_lga_one = '$lga1', sig_lga_two = '$lga2', sig_lga_three = '$lga3',
             sig_bvn_one = '$bvn1', sig_bvn_two = '$bvn2', sig_bvn_three = '$bvn3', sms_active_one = '$smsactive1', sms_active_two = '$smsactive2', sms_active_three = '$smsactive3', email_active_one = '$emailactive1', email_active_two = '$emailactive2',
              email_active_three = '$emailactive3', sig_occu_one = '$occu1', sig_occu_two = '$occu2', sig_occu_three = '$occu3', sig_passport_one = '$p1', sig_passport_two = '$p2', sig_passport_three = '$p3', sig_signature_one = '$s1', sig_signature_two = '$s2', sig_signature_three = '$s3',
-              sig_id_img_one = '$i1', sig_id_img_two = '$i2', sig_id_img_three = '$i3', sig_id_card_one = '$sigid1', sig_id_card_two = '$sigid2', sig_id_card_three = '$sigid3', status = 'Not Approved'
+              sig_id_img_one = '$i1', sig_id_img_two = '$i2', sig_id_img_three = '$i3', sig_id_card_one = '$sigid1', sig_id_card_two = '$sigid2', sig_id_card_three = '$sigid3', status = 'Not Approved', next_of_kin_name = '$nok',  next_of_kin_relationship = '$relationship_Nok', next_of_kin_phone_number = '$numberof_Nok', next_of_kin_email = '$email_Nok'
               WHERE id = '$vd'";
 
         $result = mysqli_query($connection, $queryx);
