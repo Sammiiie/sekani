@@ -9,7 +9,7 @@ if ($eod_validate == 2){
 } else if ($eod_validate == 0){
     header("Location: deposit.php");
 }else{
-    header ("Location: expense.php");
+    header("Location: deposit.php");
 }
 
 /*else if ($eod_validate == 1){
