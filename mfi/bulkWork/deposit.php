@@ -54,7 +54,7 @@ try {
                     'Branch_Name' => $row['0'],
                     'Account_Name' => $row['1'],
                     'Account_Number' => $row['2'],
-                    'Phone_Number' => $row['3'],
+                    'Description' => $row['3'],
                     'date' => $row['4'],
                     'amount' => $row['5'],
                     'teller_id' => $row['6'],
@@ -165,7 +165,7 @@ try {
                                 $accountId = $accountDetails['id'];
                                 $accountClientId = $accountDetails['client_id'];
                                 //                  get information and update transact_cache
-                                $description = 'Bulk Deposit';
+                                $description = $ourDataTable['Description'];
                                 $transactType = 'Deposit';
                                 $status = 'Pending';
 
