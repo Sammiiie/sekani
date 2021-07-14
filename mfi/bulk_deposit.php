@@ -217,8 +217,7 @@ $(document).ready(function(){
 ';
         $_SESSION["lack_of_intfund_$key"] = 0;
     }
-}
-else if (isset($_GET["message11"])) {
+} else if (isset($_GET["message11"])) {
     $key = $_GET["message11"];
     $invalidAccounts = $_SESSION['Invalid_Accounts'];
     $tt = 0;
@@ -228,7 +227,7 @@ else if (isset($_GET["message11"])) {
                 swal({
                     type: "error",
                     title: "Invalid Account Numbers Found",
-                    text: "'.implode(", ", $invalidAccounts).'",
+                    text: "' . implode(", ", $invalidAccounts) . '",
                     showConfirmButton: false,
                     timer: 60000
                 })
@@ -238,10 +237,10 @@ else if (isset($_GET["message11"])) {
 
         $_SESSION["lack_of_intfund_$key"] = 0;
     }
-}else if (isset($_GET["response"])){
+} else if (isset($_GET["response"])) {
     $response = $_GET['response'];
-    if ($response == 'manual_vault'){
-    echo '<script type="text/javascript">
+    if ($response == 'manual_vault') {
+        echo '<script type="text/javascript">
       $(document).ready(function(){
           swal({
               type: "warning",
@@ -253,8 +252,8 @@ else if (isset($_GET["message11"])) {
       });
       </script>
       ';
-  }else if ($response == 'err'){
-    echo '<script type="text/javascript">
+    } else if ($response == 'err') {
+        echo '<script type="text/javascript">
       $(document).ready(function(){
           swal({
               type: "error",
@@ -265,9 +264,8 @@ else if (isset($_GET["message11"])) {
       });
       </script>
       ';
-
-  }
- }
+    }
+}
 ?>
 
 
@@ -301,23 +299,23 @@ else if (isset($_GET["message11"])) {
                                         <div class="table-responsive">
                                             <table class="table">
                                                 <thead class=" text-primary">
-                                                <th>ID</th>
-                                                <th>Teller Branch</th>
-                                                <th>Teller Description</th>
-                                                <th>Teller ID</th>
+                                                    <th>ID</th>
+                                                    <th>Teller Branch</th>
+                                                    <th>Teller Description</th>
+                                                    <th>Teller ID</th>
                                                 </thead>
                                                 <tbody>
-                                                <?php foreach ($tellers as $key => $teller) { ?>
-                                                    <tr>
-                                                        <td><?php echo $key + 1 ?></td>
-                                                        <?php
-                                                        $branchName = selectOne('branch', ['id' => $teller['branch_id']])
-                                                        ?>
-                                                        <td><?php echo $branchName['name'] ?></td>
-                                                        <td><?php echo $teller['description'] ?></td>
-                                                        <td><?php echo $teller['id'] ?></td>
-                                                    </tr>
-                                                <?php } ?>
+                                                    <?php foreach ($tellers as $key => $teller) { ?>
+                                                        <tr>
+                                                            <td><?php echo $key + 1 ?></td>
+                                                            <?php
+                                                            $branchName = selectOne('branch', ['id' => $teller['branch_id']])
+                                                            ?>
+                                                            <td><?php echo $branchName['name'] ?></td>
+                                                            <td><?php echo $teller['description'] ?></td>
+                                                            <td><?php echo $teller['id'] ?></td>
+                                                        </tr>
+                                                    <?php } ?>
                                                 </tbody>
                                             </table>
                                         </div>
@@ -336,18 +334,18 @@ else if (isset($_GET["message11"])) {
                                         <div class="table-responsive">
                                             <table class="table">
                                                 <thead class=" text-primary">
-                                                <th>ID</th>
-                                                <th>Payment Description</th>
-                                                <th>Payment ID</th>
+                                                    <th>ID</th>
+                                                    <th>Payment Description</th>
+                                                    <th>Payment ID</th>
                                                 </thead>
                                                 <tbody>
-                                                <?php foreach ($paymentsType as $key => $type) { ?>
-                                                    <tr>
-                                                        <td><?php echo $key + 1 ?></td>
-                                                        <td><?php echo $type['value'] ?></td>
-                                                        <td><?php echo $type['id'] ?></td>
-                                                    </tr>
-                                                <?php } ?>
+                                                    <?php foreach ($paymentsType as $key => $type) { ?>
+                                                        <tr>
+                                                            <td><?php echo $key + 1 ?></td>
+                                                            <td><?php echo $type['value'] ?></td>
+                                                            <td><?php echo $type['id'] ?></td>
+                                                        </tr>
+                                                    <?php } ?>
                                                 </tbody>
                                             </table>
                                         </div>
@@ -357,20 +355,17 @@ else if (isset($_GET["message11"])) {
                             </div>
                             <!-- SELECT TELLER TABLE ENDS -->
                             <div class="col-md-6">
-                                <form action="./bulkWork/bulk_deposit_eod.php" method="post" enctype="multipart/form-data">
+                                <form action="./bulkWork/bulk_deposit.php" method="post" enctype="multipart/form-data">
 
                                     <!-- SELECT BRANCH CARD BEGINS -->
                                     <div class="card">
                                         <div class="card-body">
                                             <div class="form-group">
                                                 <label for="exampleFormControlSelect1">Select Branch</label>
-                                                <select class="form-control selectpicker" required name="branch"
-                                                        data-style="btn btn-link"
-                                                        id="branchId">
+                                                <select class="form-control selectpicker" required name="branch" data-style="btn btn-link" id="branchId">
                                                     <option value="">Select A Branch</option>
                                                     <?php foreach ($branchs as $branch) { ?>
-                                                        <option value="<?php echo $branch['id'] ?>"
-                                                        ><?php echo $branch['name'] ?></option>
+                                                        <option value="<?php echo $branch['id'] ?>"><?php echo $branch['name'] ?></option>
                                                     <?php } ?>
                                                 </select>
                                             </div>
@@ -401,15 +396,12 @@ else if (isset($_GET["message11"])) {
                                         <div class="card-body">
                                             <div class="row">
                                                 <div class="input-group">
-                                                    <input type="file" name="excelFile"
-                                                           class="form-control inputFileVisible"
-                                                           placeholder="Single File" required>
+                                                    <input type="file" name="excelFile" class="form-control inputFileVisible" placeholder="Single File" required>
                                                     <span class="input-group-btn">
-                                                    <button type="submit" name="submit"
-                                                            class="btn btn-fab btn-round btn-primary">
-                                                        <i class="material-icons">send</i>
-                                                    </button>
-                                                </span>
+                                                        <button type="submit" name="submit" class="btn btn-fab btn-round btn-primary">
+                                                            <i class="material-icons">send</i>
+                                                        </button>
+                                                    </span>
                                                 </div>
                                             </div>
                                             <!-- UPLOAD SECTION ENDS -->
@@ -455,8 +447,7 @@ else if (isset($_GET["message11"])) {
                                             </li>
                                         </ul>
                                         <div class="card-body text-center">
-                                            <a href='bulkWork/getFile.php?name=bulk_deposit&loc=1'
-                                               class="btn btn-primary btn-lg">Download Deposit Data Sample</a>
+                                            <a href='bulkWork/getFile.php?name=bulk_deposit&loc=1' class="btn btn-primary btn-lg">Download Deposit Data Sample</a>
 
                                         </div>
                                     </div>
