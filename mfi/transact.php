@@ -407,7 +407,7 @@ if (isset($_GET["message"])) {
           swal({
               type: "error",
               title: "Not Allowed!",
-              text: "Today has been marked closed",
+              text: "Day has not been closed!",
               showConfirmButton: true
           })
       });
@@ -584,7 +584,7 @@ if ($trans_post == 1 || $trans_post == "1") {
                                       
                                 </div>
                                 <button type="reset" class="btn btn-danger">Reset</button>
-                                <button type="submit" class="btn btn-primary pull-right">Submit</button>
+                                <button type="submit" name="withdep" class="btn btn-primary pull-right">Submit</button>
                                 <div class="clearfix"></div>
                             </form>
                         </div>
@@ -708,7 +708,7 @@ $(function() {
                                         </div>
                                     </div>
                                 </div>
-                                <button type="submit" class="btn btn-primary pull-right">Submit</button>
+                                <button type="submit" name="expense" class="btn btn-primary pull-right">Submit</button>
                             </form>
                         </div>
                     </div>

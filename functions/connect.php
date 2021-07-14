@@ -928,6 +928,9 @@ function endOfMonth($closedDate,$connection,$_cb) {
 }
 //function to run eod
 function eod($date_data){
+    // pool to cater for weekends hasn't been generated yet!! 
+    //Need to be fixed 
+    
     $int_id = $_SESSION['int_id'];
     $eod_stored = selectOneOrderByDescLimit('endofday_tb','transaction_date','id',$int_id)['transaction_date'];
     $eod_stored = date("Y-m-d", strtotime($eod_stored));
