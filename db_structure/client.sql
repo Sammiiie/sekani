@@ -99,3 +99,10 @@ ALTER TABLE `client`
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+-- new queries
+ALTER TABLE `client`
+  ADD `next_of_kin_name` varchar(255),
+  ADD `next_of_kin_relationship` varchar(255),
+  ADD `next_of_kin_phone_number` varchar(255),
+  ADD `next_of_kin_email` varchar(255);

@@ -415,7 +415,7 @@ if (isset($_POST['id'])) {
             <div class="col-md-6">
             <div class="form-group">
                 <label for="">Email Address</label>
-                <input type="number"  class="form-control" name="email_Nok">
+                <input type="email"  class="form-control" name="email_Nok">
             </div>
             </div>
             </div>
@@ -612,7 +612,7 @@ if (isset($_POST['id'])) {
             <div class="col-md-2">
             <div class="form-group">
                 <label for="">Email Address</label>
-                <input type="number"  class="form-control" name="email_Nok">
+                <input type="email"  class="form-control" name="email_Nok">
             </div>
             </div>
           
