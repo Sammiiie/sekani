@@ -355,7 +355,7 @@ $(document).ready(function(){
                             </div>
                             <!-- SELECT TELLER TABLE ENDS -->
                             <div class="col-md-6">
-                                <form action="./bulkWork/bulk_deposit.php" method="post" enctype="multipart/form-data">
+                                <form action="./bulkWork/deposit.php" method="post" enctype="multipart/form-data">
 
                                     <!-- SELECT BRANCH CARD BEGINS -->
                                     <div class="card">

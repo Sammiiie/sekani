@@ -198,4 +198,18 @@ if ($approve == "approve") {
         }
         // FINAL
     }
+} else {
+    $v = "Declined";
+    $updateTrans = "UPDATE transact_cache SET `status` = '$v' WHERE int_id = '$institutionId' && id='$expenseId'";
+    $res2 = mysqli_query($connection, $updateTrans);
+    if ($res2) {
+        $_SESSION["feedback"] = "Expense Successfully Declined";
+        $_SESSION["Lack_of_intfund_$randms"] = "9";
+        echo header("Location: ../../../mfi/expense_approval.php?message0=$randms");
+    } else {
+        $error = "Error: %s\n" . mysqli_error($connection); //checking for errors
+        $_SESSION["feedback"] = "Sorry Could not Decline Expense - $error";
+        $_SESSION["Lack_of_intfund_$randms"] = "9";
+        echo header("Location: ../../../mfi/expense_approval.php?message1=$randms");
+    }
 }
