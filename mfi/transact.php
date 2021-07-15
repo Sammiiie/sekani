@@ -579,7 +579,7 @@ if ($trans_post == 1 || $trans_post == "1") {
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label>Transaction Date</label>
-                                            <input type="text" id="date" name="transDate" min="<?php echo $minDate; ?>" class="form-control" required style="position: relative; z-index: 1000;" />
+                                            <input type="date" id="date" name="transDate" min="<?php echo $minDate; ?>" max="<?php echo $today; ?>" class="form-control" required/>
                                         </div>
                                     </div>
 
@@ -591,7 +591,7 @@ if ($trans_post == 1 || $trans_post == "1") {
                         </div>
                     </div>
                 </div>
-                <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+                <!-- <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
                 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
                 <script>
                     var dates = ["12/06/2021", "14/06/2021", "20/06/2021", "21/06/2021"];
@@ -606,7 +606,7 @@ if ($trans_post == 1 || $trans_post == "1") {
                             beforeShowDay: DisableDates
                         });
                     });
-                </script>
+                </script> -->
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header card-header-primary">
@@ -680,10 +680,10 @@ if ($trans_post == 1 || $trans_post == "1") {
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label>Transaction Date</label>
-                                            <input type="text" min="<?php echo $minDate; ?>" name="transDate" id="expense_date" class="form-control dates" style="position: relative; z-index: 100000;" required />
+                                            <input type="date" min="<?php echo $minDate; ?>" max="<?php echo $today; ?>" name="transDate" id="expense_date" class="form-control dates" required />
                                         </div>
                                     </div>
-                                    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+                                    <!-- <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
                                     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
                                     <script>
                                         var dates = ["12/06/2021", "14/06/2021", "20/06/2021", "21/06/2021"];
@@ -698,7 +698,7 @@ if ($trans_post == 1 || $trans_post == "1") {
                                                 beforeShowDay: DisableDates
                                             });
                                         });
-                                    </script>
+                                    </script> -->
                                     <div class="col-md-4">
                                         <div id="transaction_id2"></div>
                                     </div>
