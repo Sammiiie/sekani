@@ -26,7 +26,7 @@ $destination = "../index.php";
                   <p class="card-description">
                   Pay Bills - Electricity, Cable Tv e.t.c 
                   </p>
-                  <a href="bill.php" class="btn btn-white btn-round">View</a>
+                  <a href="bills_payment.php" class="btn btn-white btn-round">View</a>
                   </div>
               </div>
             </div>
