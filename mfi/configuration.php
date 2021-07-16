@@ -367,6 +367,20 @@ $(document).ready(function(){
                     <div class="card card-pricing bg-primary">
                         <div class="card-body ">
 
+                            <h4 class="card-title">Staff & Client Level</h4>
+                            <p class="card-description">
+                                Create and Edit Levels
+                            </p>
+                            <a href="staff_client_level.php" class="btn btn-white btn-round">View</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 ml-auto mr-auto">
+
+                    <div class="card card-pricing bg-primary">
+                        <div class="card-body ">
+
                             <h4 class="card-title">Administrative Functions</h4>
                             <p class="card-description">
                                 Perform Administrative activities  
